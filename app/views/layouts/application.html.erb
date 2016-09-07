@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>Calcangular</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div>
+	    <label>Имя:</label>
+	    <input type="text" ng-model="yourName">
+	    <hr>
+	    <h1>Привет,  { { yourName  } }!</h1>
+    </div>
+
+</body>
+</html>

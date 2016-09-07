@@ -1,0 +1,9 @@
+	
+<form (ngSubmit)="postDataToServer()">
+	<div *ngIf="message">
+		<p>>{{m}}</p>
+		<p>>{{message}}</p>
+	</div>
+		><input type='text' (change)="takeExp(ctrl.value)" #ctrl autofocus/>
+	<br>
+</form>
