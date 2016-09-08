@@ -5,12 +5,16 @@ class ApplicationController < ActionController::Base
   skip_before_filter  :verify_authenticity_token
 
   def take
-  	calc = params[:value]
+  	type = params[:value]
   	begin
-    	calc = eval(calc)
+      symb = /[a-zA-Z]/
+      calc = eval(type)
+      raise render json: {some: "Incorrect input"} if type=~symb
   		render json: {some: calc }
-  	rescue Exception => err
-  		render json: {some: err.to_s}
+    rescue ZeroDivisionError
+      render json:{some: "Infinity"}
+    rescue Exception => err
+  		render json: {some: "Invalid input"}
   	end
   end
 end

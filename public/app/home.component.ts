@@ -35,14 +35,14 @@ export class HomeComponent {
       err => console.log("Error HTTP Post Service")
     ); 
   }
-
+  
 	takeExp(value:string){
 		this.m = value;
 	}
 
 	addCalcs(m:string, message:string) {
-    this.calcs.push(
-    	{exp: m, answ: message});
+		this.calcs.push(
+			{exp:m, answ:message});
     if (m == 'cls'){
     	this.calcs = [];
     }

@@ -1,6 +1,5 @@
-	
 <form (ngSubmit)="postDataToServer()" (keyup.enter)="addCalcs(m, message)">
-	<div *ngIf="message">
+	<div *ngIf="m != null">
 		<div *ngFor="#calc of calcs">
 			<p>>{{calc.exp}}</p>
 			<p>>{{calc.answ}}</p>
