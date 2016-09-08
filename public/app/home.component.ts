@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 @Component({ 
 	selector: 'home', 
 	templateUrl: `/app/home.component.html`, 
-	styleUrls: ['app/home.component.css']
+	styleUrls: ['app/home.component.css'],
 }) 
 
 
@@ -15,6 +15,8 @@ export class HomeComponent {
 	message: string; 
 	m:string = '';
 	str:string = '';
+	calcs: Array<any> = [];
+
 	constructor( public http: Http){}
 
 	giveExpToServer(m){
@@ -26,9 +28,6 @@ export class HomeComponent {
     .map(res => res.json());
   }
 
-
-
-
 	postDataToServer(){
 		this.giveExpToServer(this.m)
 		.subscribe(
@@ -37,12 +36,15 @@ export class HomeComponent {
     ); 
   }
 
-
 	takeExp(value:string){
 		this.m = value;
 	}
 
-	appendInput(){
-		this.str="> "+ this.message + "<br><br>";
-	}	
+	addCalcs(m:string, message:string) {
+    this.calcs.push(
+    	{exp: m, answ: message});
+    if (m == 'cls'){
+    	this.calcs = [];
+    }
+  }
 }

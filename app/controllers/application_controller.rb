@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   	begin
     	calc = eval(calc)
   		render json: {some: calc }
-  	rescue => err
+  	rescue Exception => err
   		render json: {some: err.to_s}
   	end
   end

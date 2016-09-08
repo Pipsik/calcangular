@@ -28,6 +28,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_
                     this.http = http;
                     this.m = '';
                     this.str = '';
+                    this.calcs = [];
                 }
                 HomeComponent.prototype.giveExpToServer = function (m) {
                     var body = JSON.stringify({ "value": m });
@@ -44,14 +45,17 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_
                 HomeComponent.prototype.takeExp = function (value) {
                     this.m = value;
                 };
-                HomeComponent.prototype.appendInput = function () {
-                    this.str = "> " + this.message + "<br><br>";
+                HomeComponent.prototype.addCalcs = function (m, message) {
+                    this.calcs.push({ exp: m, answ: message });
+                    if (m == 'cls') {
+                        this.calcs = [];
+                    }
                 };
                 HomeComponent = __decorate([
                     core_1.Component({
                         selector: 'home',
                         templateUrl: "/app/home.component.html",
-                        styleUrls: ['app/home.component.css']
+                        styleUrls: ['app/home.component.css'],
                     }), 
                     __metadata('design:paramtypes', [http_1.Http])
                 ], HomeComponent);
