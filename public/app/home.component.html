@@ -1,10 +1,10 @@
-<form (ngSubmit)="postDataToServer()" (keyup.enter)="addCalcs(m, message)">
+<form (ngSubmit)="postDataToServer()" (keyup.enter)="addCalcs(m, message);checkElement()">
 	<div *ngIf="m != null">
 		<div *ngFor="#calc of calcs">
 			<p>>{{calc.exp}}</p>
 			<p>>{{calc.answ}}</p>
 		</div>
 	</div>
-	><input type='text' (change)="takeExp(ctrl.value)" #ctrl autofocus/>
+	><input type='text' class="hui" (change)="takeExp(ctrl.value)"  #ctrl onblur="this.focus()" autofocus/>
 	<br>
 </form>

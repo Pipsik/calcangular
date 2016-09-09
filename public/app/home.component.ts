@@ -16,6 +16,8 @@ export class HomeComponent {
 	m:string = '';
 	str:string = '';
 	calcs: Array<any> = [];
+	
+
 
 	constructor( public http: Http){}
 
@@ -41,10 +43,15 @@ export class HomeComponent {
 	}
 
 	addCalcs(m:string, message:string) {
+
 		this.calcs.push(
 			{exp:m, answ:message});
     if (m == 'cls'){
     	this.calcs = [];
     }
+  }
+  checkElement(){
+  	var x=document.getElementsByClassName("hui");
+  	x[0].value = '';
   }
 }

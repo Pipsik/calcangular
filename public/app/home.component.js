@@ -51,6 +51,10 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_
                         this.calcs = [];
                     }
                 };
+                HomeComponent.prototype.checkElement = function () {
+                    var x = document.getElementsByClassName("hui");
+                    x[0].value = '';
+                };
                 HomeComponent = __decorate([
                     core_1.Component({
                         selector: 'home',
